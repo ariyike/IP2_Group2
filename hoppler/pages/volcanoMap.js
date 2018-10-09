@@ -22,7 +22,7 @@ var map;
                 // The following uses JQuery library
                 $.ajax({
                     // The URL of the specific data required
-                    url: "https://webservices.volcano.si.edu/geoserver/GVP-VOTW/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=GVP-VOTW:Smithsonian_VOTW_Holocene_Volcanoes&maxFeatures=100&outputFormat=application/json",
+                    url: "https://d2ad6b4ur7yvpq.cloudfront.net/naturalearth-3.3.0/ne_110m_populated_places_simple.geojson",
 
                     // Called if there is a problem loading the data
                     error: function () {
@@ -49,7 +49,7 @@ var map;
                             
                             // Form a string that holds desired marker infoWindow content. The infoWindow will pop up when you click on a marker on the map
                             var infowindow = new google.maps.InfoWindow({
-                                content: "<h3>" + val.properties.title + "</h3><p><a href='" + val.properties.url + "'>Details</a></p>"
+                                content: "<h3>" + val.properties.name + " is a city in " +val.properties.adm0name+" with a population of " +val.properties.pop_max+ "</h3><p><a href='https://en.wikipedia.org/wiki/" + val.properties.name + "' target='_blank'>learn more here</a></p>"
                             });
                             //-----
                         });
