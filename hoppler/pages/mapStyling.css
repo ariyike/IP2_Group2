@@ -1,0 +1,5 @@
+/* set the map height explicitly */
+#map {
+            height: 400px;
+            width: 100%;
+        }
