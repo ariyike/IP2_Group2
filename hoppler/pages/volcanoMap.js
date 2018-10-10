@@ -3,7 +3,7 @@ var map;
         function initMap() {
             map = new google.maps.Map(document.getElementById('map'), {
                 zoom: 2,
-                center: new google.maps.LatLng(2.8, -187.3), // Center Map. Set this to any location that you like
+                center: new google.maps.LatLng(28.9, 2.4), // Center Map.
                 mapTypeId: 'terrain' // can be any valid type
             });
         }
@@ -16,13 +16,14 @@ var map;
                 // Set Google map  to its start state
                 map = new google.maps.Map(document.getElementById('map'), {
                     zoom: 2,
-                    center: new google.maps.LatLng(2.8, -187.3), // Center Map. Set this to any location that you like
+                    center: new google.maps.LatLng(28.9, 2.4), // Center Map.
                     mapTypeId: 'terrain' // can be any valid type
                 });
+
                 // The following uses JQuery library
                 $.ajax({
                     // The URL of the specific data required
-                    url: "https://d2ad6b4ur7yvpq.cloudfront.net/naturalearth-3.3.0/ne_110m_populated_places_simple.geojson",
+                    url: "https://cors-anywhere.herokuapp.com/https://webservices.volcano.si.edu/geoserver/GVP-VOTW/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=GVP-VOTW:Smithsonian_VOTW_Holocene_Volcanoes&maxFeatures=100&outputFormat=application/json",
 
                     // Called if there is a problem loading the data
                     error: function () {
@@ -42,19 +43,21 @@ var map;
                                 map: map
                             });
                             markers[i++] = marker; // Add the marker to array to be used by clusterer
+
                             //------
+                            //markers show info windows upon click activity with this code
                              marker.addListener('click', function (data) {
                                 infowindow.open(map, marker); // Open the Google maps marker infoWindow
                             });
                             
                             // Form a string that holds desired marker infoWindow content. The infoWindow will pop up when you click on a marker on the map
                             var infowindow = new google.maps.InfoWindow({
-                                content: "<h3>" + val.properties.name + " is a city in " +val.properties.adm0name+" with a population of " +val.properties.pop_max+ "</h3><p><a href='https://en.wikipedia.org/wiki/" + val.properties.name + "' target='_blank'>learn more here</a></p>"
+                                content: "<h6>" + val.properties.Volcano_Name + " is a/an " +val.properties.Primary_Volcano_Type+" volcano in " +val.properties.Country+ "</h6><p>"+val.properties.Geological_Summary+"</p><p><a href='" + val.properties.Primary_Photo_Link + "' target='_blank'>see it's image here</a></p>"
                             });
                             //-----
                         });
                         var markerCluster = new MarkerClusterer(map, markers,
-                            { imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m' });
+                            { imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
                     }
                 });
             });
