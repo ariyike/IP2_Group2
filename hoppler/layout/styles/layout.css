@@ -446,3 +446,34 @@ table a, #comments a{background-color:inherit;}
 	#pageintro article, #pageintro p:first-of-type{max-width:none; width:100%;}
 	#pageintro .heading{font-size:1.6rem;}
 }
+/* objec tList
+--------------------------------------------------------------------------------------------------------------- */
+#objectList ul {
+  list-style: none;
+}
+
+#objectList ul li:before {
+  content: '✓';
+}
+
+ #geometry h1
+{
+    font-size: 120%;
+}
+
+#example
+{
+    border: 2px solid #f2f4f7; /*MAYBE ADD COLOR TO THIS*/
+    background-color: #f2f4f7;
+    border-radius: 5px;
+    padding: 30px;
+}
+
+#pre-example
+{
+	margin-bottom: -5%;
+}
+#comments1
+{
+	margin-top: 4.9%;
+}
