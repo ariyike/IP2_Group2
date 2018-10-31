@@ -16,6 +16,7 @@ Licence URI: https://www.os-templates.com/template-terms
     <link href="earthquakeMapsStyle.css" rel="stylesheet" type="text/css" media="all">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
+    
 <body id="top">
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
@@ -23,7 +24,7 @@ Licence URI: https://www.os-templates.com/template-terms
 <!-- Top Background Image Wrapper -->
 <div class="bgded overlay" style="background-image:url('../images/demo/earthquake.jpg'); background-attachment: fixed;"> 
   <!-- ################################################################################################ -->
-  <div class="wrapper row1">
+    <div class="wrapper row1">
     <header id="header" class="hoc clear"> 
       <!-- ################################################################################################ -->
       <div id="logo" class="fl_left">
@@ -32,13 +33,11 @@ Licence URI: https://www.os-templates.com/template-terms
       <nav id="mainav" class="fl_right">
         <ul class="clear">
           <li><a href="../index.html">Home</a></li>
+                      <li class="inactive"><a href="../index.html">Overview</a></li>
 
-          <li><a class="drop active" href="#">Explore</a>
+			<li class="active"><a class="drop" href="#">Explore</a>
             <ul>
-		  <li class="inactive"><a href="../index.html">Overview</a></li>
-          <li><a class="drop active" href="#">Explore</a>			  
-			<ul>
-              <li><a href="earthquakes.html">Earthquakes</a></li>
+              <li class="active"><a href="earthquakes.html">Earthquakes</a></li>
               <li><a href="weather.html">Weather</a></li>
               <li><a href="volcanoes.html">Volcanoes</a></li>
             </ul>
@@ -95,8 +94,9 @@ Licence URI: https://www.os-templates.com/template-terms
         <div id='container'>
 
     </div>
-      
-    <div id="map"></div>
+    <div id="weatherImage"></div> <!--will display an icon describing the weather of the location on the map-->
+    <div id="weatherInfo"></div> <!--will give textual description of the icon above-->
+    <div id="map"></div> <!--the map will be in here-->
     </div>
     <!-- ################################################################################################ -->
     <!-- / main body -->
@@ -127,4 +127,5 @@ Licence URI: https://www.os-templates.com/template-terms
 <script src="../layout/scripts/jquery.mobilemenu.js"></script>
     <script src="earthquakeMap.js"></script>
 </body>
+    
 </html>

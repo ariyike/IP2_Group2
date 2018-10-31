@@ -128,6 +128,40 @@
                                 content: "<h3>" + val.properties.title + "</h3><br>Maginitude: "+magni+"<br>State: "+state+"<br><br> Time of Earthquake: "+date+"<br><p><a href='" + val.properties.url + "'>Details</a></p> "
                             });
                             marker.addListener('click', function (data) {
+                                
+                                // We use the lat and lon as the parameters in the API call to weather service
+                                var lat = marker.position.lat();
+                                var lng = marker.position.lng();
+                                // You need to use the FREE signup at https://www.apixu.com/ to get a key for the Weather URL below
+                                theURL = 'http://api.apixu.com/v1/current.json?key=aee1f4bcd581463f8c3104119182910&q=' + lat.toFixed(4) + ',' + lng.toFixed(4);
+                                $.ajax({
+                                    url: theURL,
+                                    success: function (data) {
+                                        image = new Image();
+                                        if (data.error) {
+                                            image.src = "http://via.placeholder.com/64x64?text=%20"; // Error, so we use blank image for weather. See 'error:' below for another way to include a small blank image
+                                        }
+                                        else {
+                                            image.src = "http:" + data.current.condition.icon; // icon is specified within the data
+
+                                            $('#weatherInfo').html('<p>' + data.current.condition.text + '</p>'); // current weather in text format
+                                        }
+                                        image.onload = function () {
+                                            $('#weatherImage').empty().append(image);
+                                        };
+
+                                    },
+                                    error: function () { // Weather service could not provide weather for requested lat,lon world location
+                                        image = new Image();
+                                        // A local 64*64 transparent image. Generated from the useful site: http://png-pixel.com/
+                                        image.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAQAAAAAYLlVAAAAPElEQVR42u3OMQEAAAgDIJfc6BpjDyQgt1MVAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBgXbgARTAX8ECcrkoAAAAAElFTkSuQmCC";
+                                        image.onload = function () {
+                                            //set the image into the web page
+                                            $('#weatherImage').empty().append(image);
+                                        };
+                                    }
+                                });
+                                
                                 infowindow.open(map, marker); // Open the Google maps marker infoWindow
                             });
                         });
