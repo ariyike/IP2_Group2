@@ -95,19 +95,7 @@
                         success: function (data) {
                             i = 0;
                             var markers = []; // keep an array of Google Maps markers, to be used by the Google Maps clusterer
-                            $.each(data.features, function (key, val) {
-                                // Get the lat and lng data for use in the markers
-                                var coords = val.geometry.coordinates;
-                                var latLng = new google.maps.LatLng(coords[1], coords[0]);
-                                // Now create a new marker on the map
-                                var marker = new google.maps.Marker({
-                                    position: latLng,
-                                    map: map
-                                });
-                                markers[i++] = marker; // Add the marker to array to be used by clusterer
-                            });
-                            var markerCluster = new MarkerClusterer(map, markers,
-                                { imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m' });
+                            
                             $.each(data.features, function (key, val) {
                             // Get the lat and lng data for use in the markers
                             var coords = val.geometry.coordinates;
@@ -118,6 +106,8 @@
                                 map: map,
                                 label: val.properties.mag.toString() // Whatever label you like. This one is the magnitude of the earthquake
                             });
+                                
+                                markers[i++] = marker; // Add the marker to array to be used by clusterer
                             var time = val.properties.time;
                             var date = new Date(time);
                             var state = val.properties.place;
@@ -165,6 +155,8 @@
                                 infowindow.open(map, marker); // Open the Google maps marker infoWindow
                             });
                         });
+                            var markerCluster = new MarkerClusterer(map, markers,
+                                { imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m' });
                         }
                     });
                 }

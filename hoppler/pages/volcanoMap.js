@@ -13,7 +13,7 @@ var map;
         $(document).ready(function () {
 
             $('#volcanoes').click(function () {
-                // Set Google map  to its start state
+//                 Set Google map  to its start state
                 map = new google.maps.Map(document.getElementById('map'), {
                     zoom: 2,
                     center: new google.maps.LatLng(28.9, 2.4), // Center Map.
