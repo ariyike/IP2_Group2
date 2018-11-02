@@ -68,3 +68,11 @@ body {
     min-width: 64px;
     max-width: 64px;
 }
+
+#weatherImg {
+    margin-top: 10px;
+    border: 1px solid #5DBCD2;
+    min-height: 64px;
+    min-width: 64px;
+    max-width: 64px;
+}

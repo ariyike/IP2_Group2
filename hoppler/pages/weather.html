@@ -13,6 +13,8 @@ Licence URI: https://www.os-templates.com/template-terms
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <link href="../layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link href="earthquakeMapsStyle.css" rel="stylesheet" type="text/css" media="all">
 </head>
 <body id="top">
 <!-- ################################################################################################ -->
@@ -70,7 +72,11 @@ Licence URI: https://www.os-templates.com/template-terms
       
     <div class="sidebar one_quarter first"> 
       <!-- ################################################################################################ -->
-      <h6>Navigate Here</h6>
+      <h6>View Weather</h6>
+    <div id="weatherImg"></div> <!--will display an icon describing the weather of the location on the map-->
+    <div id="weatherInf"></div> <!--will give textual description of the icon above-->
+        
+    <div id="weatherInfAdd"></div> <!--will give additional textual description of the weather above-->
         
     </div>
     <!-- ################################################################################################ -->
@@ -82,21 +88,26 @@ Licence URI: https://www.os-templates.com/template-terms
         
       <form class="weatherForm" name="weatherForm">
           <div class="one_third first">
-            <label for="longitude">longitude <span>*</span></label>
-            <input type="text" name="longitude" id="longitude" value="" size="22" required>
-          </div>
-          <div class="one_third">
             <label for="latitude">latitude <span>*</span></label>
-            <input type="latitude" name="latitude" id="latitude" value="" size="22" required>
+            <input type="latitude" name="latitude" id="latitude"  size="22" required>
+          </div>
+           <div class="one_third">
+            <label for="longitude">longitude <span>*</span></label>
+            <input type="text" name="longitude" id="longitude"  size="22" required>
           </div>
           <div class="one_third">
               &nbsp;
-            <input type="submit" name="submit" value="Go">
+              &nbsp;
+            <input type="button" id="submit" name="submit" value="Go" class="btn" onclick="loadWeather()">
+<!--            <p id="wanna">a test</p>-->
           </div>
+<!--
           <div class="block clear">
               &nbsp;
-            <input type="reset" name="reset" value="Reset Form">
+               &nbsp;
+            <input type="reset" name="reset" value="Reset Form" class="btn">
           </div>
+-->
         </form>
       <!-- ########a######################################################################################## -->
     </div>
@@ -122,5 +133,6 @@ Licence URI: https://www.os-templates.com/template-terms
 <script src="../layout/scripts/jquery.min.js"></script>
 <script src="../layout/scripts/jquery.backtotop.js"></script>
 <script src="../layout/scripts/jquery.mobilemenu.js"></script>
+    <script src="weatherLoad.js"></script>
 </body>
 </html>
