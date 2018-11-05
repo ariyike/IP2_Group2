@@ -1,3 +1,4 @@
+//function to load weather using city name
 function loadCityWeather(){
     
 var cityName = document.getElementById("cityName").value;
@@ -34,6 +35,7 @@ myURL = 'http://api.apixu.com/v1/current.json?key=aee1f4bcd581463f8c310411918291
                                     }
                                 });
 }
+
 
 //function to load weather using long and lat values
 function loadWeather(){
