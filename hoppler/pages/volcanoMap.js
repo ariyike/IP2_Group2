@@ -44,7 +44,6 @@ var map;
                             });
                             markers[i++] = marker; // Add the marker to array to be used by clusterer
 
-                            //------
                             //markers show info windows upon click activity with this code
                              marker.addListener('click', function (data) {
                                 infowindow.open(map, marker); // Open the Google maps marker infoWindow
@@ -54,7 +53,7 @@ var map;
                             var infowindow = new google.maps.InfoWindow({
                                 content: "<h6>" + val.properties.Volcano_Name + " is a/an " +val.properties.Primary_Volcano_Type+" volcano in " +val.properties.Country+ "</h6><p>"+val.properties.Geological_Summary+"</p><p><a href='" + val.properties.Primary_Photo_Link + "' target='_blank'>see it's image here</a></p>"
                             });
-                            //-----
+                            
                         });
                         var markerCluster = new MarkerClusterer(map, markers,
                             { imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
