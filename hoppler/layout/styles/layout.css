@@ -477,3 +477,34 @@ table a, #comments a{background-color:inherit;}
 {
 	margin-top: 4.9%;
 }
+
+
+/* Adding CSS to the authors list.
+-----------------------------------------------------------------------------------------------------------*/
+.row {
+    display: flex;
+}
+.column {
+    flex: 33.33%;
+    padding: 5px;
+}
+
+.row img {
+    border-radius: 50%;
+}
+
+.row-extended {
+    display: flex;
+}
+
+.column-extended {
+    flex: 100%;
+    padding: 10%;
+    margin-top: 20px;
+}
+
+.row-extended img {
+    border-radius: 50%;
+    
+}
+
