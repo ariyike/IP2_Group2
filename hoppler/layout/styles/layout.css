@@ -478,7 +478,6 @@ table a, #comments a{background-color:inherit;}
 	margin-top: 4.9%;
 }
 
-
 /* Adding CSS to the authors list.
 -----------------------------------------------------------------------------------------------------------*/
 .row {
@@ -506,5 +505,14 @@ table a, #comments a{background-color:inherit;}
 .row-extended img {
     border-radius: 50%;
     
+}
+
+
+#dots, #dots1, #dots2, #dots3, #dots4 {
+    display: inline;
+}
+
+#more, #more1, #more2, #more3, #more4 {
+    display: none;
 }
 
