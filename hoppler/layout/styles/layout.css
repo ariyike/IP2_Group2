@@ -507,6 +507,7 @@ table a, #comments a{background-color:inherit;}
     
 }
 
+
 #dots, #dots1, #dots2, #dots3, #dots4 {
     display: inline;
 }
@@ -514,3 +515,4 @@ table a, #comments a{background-color:inherit;}
 #more, #more1, #more2, #more3, #more4 {
     display: none;
 }
+
