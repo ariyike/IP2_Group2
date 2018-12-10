@@ -519,3 +519,10 @@ table a, #comments a{background-color:inherit;}
 #longitude, #latitude, #cityName{
 	height: 40px;
 }
+
+/* Making the text content within the "pre" tag on the GeoJSON_about page wrap around for responsivity.
+-----------------------------------------------------------------------------------------------------------*/
+pre {
+	white-space: pre-wrap;
+	word-break: keep-all;
+}
